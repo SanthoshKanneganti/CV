@@ -3,191 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Santhosh Kumar Kanneganti - Data-Driven Full Stack Engineer Resume">
-    <meta name="keywords" content="Python, React, SQL, FastAPI, Full Stack Engineer, Data Architecture, MSBI, ETL, Cybersecurity">
-    <meta name="author" content="Santhosh Kumar Kanneganti">
-    <title>Santhosh Kumar | Full Stack Engineer Profile</title>
+    <title>Santhosh Kumar | Full Stack Engineer</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
         :root {
-            --primary-color: #0f172a;
-            --secondary-color: #2563eb;
-            --text-main: #334155;
-            --text-muted: #64748b;
-            --bg-light: #f8fafc;
-            --border-color: #e2e8f0;
+            --primary: #0f172a;      /* Slate 900 */
+            --accent: #0ea5e9;       /* Sky 500 */
+            --text-main: #334155;    /* Slate 700 */
+            --text-light: #64748b;   /* Slate 500 */
+            --bg-page: #e2e8f0;      /* Slate 200 */
+            --bg-tags: #f1f5f9;      /* Slate 100 */
+            --border: #cbd5e1;       /* Slate 300 */
         }
+
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             color: var(--text-main);
+            background-color: var(--bg-page);
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #cbd5e1;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
-        .container {
-            max-width: 900px;
+
+        .resume-container {
+            max-width: 850px;
             margin: 40px auto;
             background: #ffffff;
-            padding: 60px 80px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            border-top: 8px solid var(--secondary-color);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-top: 6px solid var(--primary);
         }
+
+        /* --- Header --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            padding: 50px 60px 30px 60px;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
         }
-        .header-text h1 {
-            font-size: 38px;
-            color: var(--primary-color);
+
+        .name-role h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary);
             margin: 0 0 5px 0;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            line-height: 1.1;
         }
-        .header-text h2 {
+
+        .name-role h2 {
             font-size: 18px;
-            color: var(--secondary-color);
-            margin: 0 0 10px 0;
             font-weight: 500;
-        }
-        .contact-info {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-        .contact-info a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        h3 {
-            font-size: 20px;
-            color: var(--primary-color);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .summary {
-            font-size: 15px;
-            text-align: justify;
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            background-color: var(--bg-light);
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .skills-category strong {
-            display: block;
-            color: var(--primary-color);
-            margin-bottom: 8px;
-            font-size: 15px;
-        }
-        .skills-category p {
+            color: var(--accent);
             margin: 0;
-            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 13.5px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info div {
+            margin-bottom: 4px;
+        }
+
+        /* --- Main Content --- */
+        .content {
+            padding: 40px 60px 50px 60px;
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        h3::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            margin-left: 15px;
+        }
+
+        p.summary-text {
+            font-size: 14.5px;
+            text-align: justify;
+            margin: 0;
             color: var(--text-main);
         }
-        .job-entry {
-            margin-bottom: 30px;
+
+        /* --- Skills Matrix (Tags) --- */
+        .skills-group {
+            margin-bottom: 15px;
         }
-        .job-header {
+
+        .skills-group-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: var(--bg-tags);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0 6px 8px 0;
+            border: 1px solid var(--border);
+        }
+
+        .skill-tag.highlight {
+            background: #f0f9ff;
+            color: #0369a1;
+            border-color: #bae6fd;
+        }
+
+        /* --- Experience & Projects --- */
+        .item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .item-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 10px;
+            align-items: flex-start;
+            margin-bottom: 8px;
         }
-        .job-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-        .company-name {
+
+        .item-title {
             font-size: 16px;
-            color: var(--secondary-color);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .item-subtitle {
+            font-size: 15px;
             font-weight: 500;
+            color: var(--accent);
+            margin-top: 2px;
         }
-        .job-date {
-            font-size: 14px;
+
+        .item-date {
+            font-size: 13.5px;
             font-weight: 600;
-            color: var(--text-muted);
+            color: var(--text-light);
+            background: var(--bg-tags);
+            padding: 4px 10px;
+            border-radius: 4px;
         }
+
         ul.bullet-list {
             margin: 0;
-            padding-left: 20px;
+            padding-left: 18px;
             font-size: 14px;
         }
+
         ul.bullet-list li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-align: justify;
+            color: var(--text-main);
         }
-        .education-block {
-            font-size: 15px;
+
+        ul.bullet-list li::marker {
+            color: var(--accent);
         }
-        .education-block strong {
-            color: var(--primary-color);
+
+        /* --- Special Flagship Project Styling --- */
+        .project-card {
+            background: #f8fafc;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 35px;
         }
+
+        .project-card h3 {
+            border: none;
+            margin-bottom: 10px;
+        }
+        
+        .project-card h3::after {
+            display: none;
+        }
+
+        /* --- Print Styles --- */
         @media print {
-            body { background-color: white; }
-            .container { margin: 0; padding: 20px; box-shadow: none; max-width: 100%; border-top: none; }
+            body { 
+                background-color: white; 
+                -webkit-print-color-adjust: exact; 
+            }
+            .resume-container { 
+                margin: 0; 
+                padding: 0; 
+                box-shadow: none; 
+                max-width: 100%; 
+                border-top: 6px solid var(--primary);
+            }
+            .content {
+                padding: 30px 50px;
+            }
+            header {
+                padding: 40px 50px 20px 50px;
+            }
+            .project-card {
+                break-inside: avoid;
+            }
+            .item {
+                break-inside: avoid;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="resume-container">
+        <!-- Header -->
         <header>
-            <div class="header-text">
-                <h1>Santhosh Kumar Kanneganti</h1>
+            <div class="name-role">
+                <h1>Santhosh Kumar</h1>
                 <h2>Data-Driven Full Stack Engineer</h2>
-                <div class="contact-info">
-                    Hyderabad, Telangana | 
-                    <a href="mailto:Kanneganti.Santhosh@gmail.com">Kanneganti.Santhosh@gmail.com</a> | 
-                    +91-9550260203
-                </div>
+            </div>
+            <div class="contact-info">
+                <div>Secunderabad, Telangana</div>
+                <div><a href="mailto:Kanneganti.Santhosh@gmail.com">Kanneganti.Santhosh@gmail.com</a></div>
+                <div>+91-9550260203</div>
             </div>
         </header>
 
-        <section class="summary">
-            <h3>Professional Summary</h3>
-            <p>Data-Driven Full Stack Engineer and Data Architect with over 12.5 years of enterprise experience designing scalable backend systems and high-performance databases. Currently engineering secure data pipelines and Python-based automation workflows for the cybersecurity division of a major US financial institution. Adept at bridging the gap between legacy enterprise architectures and modern development stacks. Expertise spans complex SQL optimization, Python REST API integration, and front-end development using React. Proven track record of managing massive data migrations, optimizing ETL workflows, and delivering secure, end-to-end software solutions in highly regulated environments.</p>
-        </section>
+        <div class="content">
+            <!-- Summary -->
+            <section>
+                <h3>Professional Summary</h3>
+                <p class="summary-text">Data-Driven Full Stack Engineer and Data Architect with 12.5+ years of enterprise experience designing scalable backend systems and high-performance databases. Currently engineering secure data pipelines and Python-based automation workflows for the cybersecurity division of a major US financial institution. Adept at bridging the gap between legacy enterprise architectures and modern development stacks. Proven track record of managing massive data migrations, optimizing complex ETL workflows, and delivering secure, end-to-end software solutions in highly regulated environments.</p>
+            </section>
 
-        <section>
-            <h3>Technical Capabilities</h3>
-            <div class="skills-grid">
-                <div class="skills-category">
-                    <strong>Backend & Core Logic</strong>
-                    <p>Python, FastAPI, REST API Development, Advanced Automation Scripting</p>
+            <!-- Skills -->
+            <section>
+                <h3>Technical Capabilities</h3>
+                
+                <div class="skills-group">
+                    <span class="skills-group-title">Backend & Core Logic</span>
+                    <span class="skill-tag highlight">Python</span>
+                    <span class="skill-tag highlight">FastAPI</span>
+                    <span class="skill-tag">REST API Development</span>
+                    <span class="skill-tag">Automation Scripting</span>
                 </div>
-                <div class="skills-category">
-                    <strong>Frontend & Visualization</strong>
-                    <p>React, Tailwind CSS, Vite, Tableau, HTML5/CSS3</p>
-                </div>
-                <div class="skills-category">
-                    <strong>Data Architecture</strong>
-                    <p>PostgreSQL, Advanced SQL Server (2012–2019), Dimensional Modeling, ETL Pipeline Design</p>
-                </div>
-                <div class="skills-category">
-                    <strong>Security & Legacy Integration</strong>
-                    <p>Cybersecurity Data Resiliency, Event Handler Logging, SSIS, SSAS, SSRS, MDX/DAX</p>
-                </div>
-            </div>
-        </section>
 
-        <section>
-            <h3>Recent Flagship Project</h3>
-            <div class="job-entry">
-                <div class="job-header">
+                <div class="skills-group">
+                    <span class="skills-group-title">Frontend & Visualization</span>
+                    <span class="skill-tag highlight">React</span>
+                    <span class="skill-tag">Tailwind CSS</span>
+                    <span class="skill-tag">Vite</span>
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">HTML5/CSS3</span>
+                </div>
+
+                <div class="skills-group">
+                    <span class="skills-group-title">Data Architecture & Analytics</span>
+                    <span class="skill-tag highlight">PostgreSQL</span>
+                    <span class="skill-tag highlight">Advanced SQL (T-SQL)</span>
+                    <span class="skill-tag">Data Modeling</span>
+                    <span class="skill-tag">ETL Pipeline Design</span>
+                    <span class="skill-tag">SSAS / SSRS</span>
+                    <span class="skill-tag">MDX / DAX</span>
+                </div>
+
+                <div class="skills-group">
+                    <span class="skills-group-title">Security & Infrastructure</span>
+                    <span class="skill-tag">Cybersecurity Data Resiliency</span>
+                    <span class="skill-tag">Event Handler Logging</span>
+                    <span class="skill-tag">Linux (Ubuntu/Kali)</span>
+                </div>
+            </section>
+
+            <!-- Flagship Project -->
+            <div class="project-card">
+                <div class="item-header">
                     <div>
-                        <span class="job-title">LogiSmart AI</span>
-                        <br>
-                        <span class="company-name">Predictive Supply Chain Intelligence Architecture (Active Development)</span>
+                        <div class="item-title">LogiSmart AI</div>
+                        <div class="item-subtitle">Predictive Supply Chain Intelligence Architecture (Active Development)</div>
                     </div>
                 </div>
                 <ul class="bullet-list">
@@ -197,98 +320,95 @@
                     <li>Developing a modern React frontend with integrated LLM capabilities to allow natural language querying of supply chain metrics.</li>
                 </ul>
             </div>
-        </section>
 
-        <section>
-            <h3>Professional Experience</h3>
-            
-            <div class="job-entry">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Senior Software Engineer (Cyber & Data Resiliency)</span>
-                        <br>
-                        <span class="company-name">Wells Fargo</span>
+            <!-- Experience -->
+            <section>
+                <h3>Professional Experience</h3>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Senior Software Engineer (Cyber & Data Resiliency)</div>
+                            <div class="item-subtitle">Wells Fargo</div>
+                        </div>
+                        <div class="item-date">July 2022 – Present</div>
                     </div>
-                    <div class="job-date">July 2022 – Present</div>
+                    <ul class="bullet-list">
+                        <li>Architect and manage secure, automated data pipelines processing critical cybersecurity events and threat metrics for a top-tier US financial institution.</li>
+                        <li>Develop robust Python-based API integrations and custom automation scripts to streamline security workflows and modernize data extraction.</li>
+                        <li>Design and optimize highly complex SQL queries to aggregate massive datasets, supporting compliance standards and risk mitigation strategies.</li>
+                        <li>Engineer dynamic data visualization dashboards using Tableau, empowering executive stakeholders with real-time insights into security vulnerabilities.</li>
+                    </ul>
                 </div>
-                <ul class="bullet-list">
-                    <li>Architect and manage secure, automated data pipelines processing critical cybersecurity events and threat metrics for a top-tier US financial institution.</li>
-                    <li>Develop robust Python-based API integrations and custom automation scripts to streamline security workflows and modernize data extraction.</li>
-                    <li>Design and optimize highly complex SQL queries to aggregate massive datasets, supporting compliance standards and risk mitigation strategies.</li>
-                    <li>Engineer dynamic data visualization dashboards using Tableau, empowering executive stakeholders with real-time insights into security vulnerabilities.</li>
-                </ul>
-            </div>
 
-            <div class="job-entry">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Data Engineer</span>
-                        <br>
-                        <span class="company-name">J.D. Power</span>
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Data Engineer</div>
+                            <div class="item-subtitle">J.D. Power</div>
+                        </div>
+                        <div class="item-date">March 2018 – July 2022</div>
                     </div>
-                    <div class="job-date">March 2018 – July 2022</div>
+                    <ul class="bullet-list">
+                        <li>Designed and deployed highly resilient ETL architectures, cleansing and validating complex datasets imported from various OLTP and flat file sources.</li>
+                        <li>Engineered sophisticated custom logging and event handler solutions within SSIS to monitor pipeline health and ensure rapid troubleshooting.</li>
+                        <li>Optimized enterprise-wide data processing through automated batch scheduling and rigorous technical design documentation.</li>
+                        <li>Involved in the optimization of SQL queries which resulted in substantial performance improvement for data conversion processes.</li>
+                    </ul>
                 </div>
-                <ul class="bullet-list">
-                    <li>Designed and deployed highly resilient ETL architectures, cleansing and validating complex datasets imported from various OLTP and flat file sources.</li>
-                    <li>Engineered sophisticated custom logging and event handler solutions within SSIS to monitor pipeline health and ensure rapid troubleshooting.</li>
-                    <li>Optimized enterprise-wide data processing through automated batch scheduling and rigorous technical design documentation.</li>
-                    <li>Involved in the optimization of SQL queries which resulted in substantial performance improvement for data conversion processes.</li>
-                </ul>
-            </div>
 
-            <div class="job-entry">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Data & Software Engineer</span>
-                        <br>
-                        <span class="company-name">AmeriHealth Administrators</span>
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Data & Software Engineer</div>
+                            <div class="item-subtitle">AmeriHealth Administrators</div>
+                        </div>
+                        <div class="item-date">June 2016 – April 2017</div>
                     </div>
-                    <div class="job-date">June 2016 – April 2017</div>
+                    <ul class="bullet-list">
+                        <li>Architected complex facts, dimensions, and star schema models to power enterprise healthcare data mart systems.</li>
+                        <li>Created complex multidimensional queries and integrated SQL data sources to support critical healthcare administration analytics.</li>
+                    </ul>
                 </div>
-                <ul class="bullet-list">
-                    <li>Architected complex facts, dimensions, and star schema models to power enterprise healthcare data mart systems.</li>
-                    <li>Created complex multidimensional queries and integrated SQL data sources to support critical healthcare administration analytics.</li>
-                </ul>
-            </div>
 
-            <div class="job-entry">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Data Integration Engineer</span>
-                        <br>
-                        <span class="company-name">Liquid Hub India</span>
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Data Integration Engineer</div>
+                            <div class="item-subtitle">Liquid Hub India</div>
+                        </div>
+                        <div class="item-date">March 2016 – June 2016</div>
                     </div>
-                    <div class="job-date">March 2016 – June 2016</div>
+                    <ul class="bullet-list">
+                        <li>Executed a large-scale, enterprise-wide data migration into Salesforce, ensuring zero business downtime and rigorous master data management.</li>
+                        <li>Implemented stringent data cleansing methods across disparate sources (NetSuite, ADP, MS Dynamics) to ensure auditing accuracy.</li>
+                    </ul>
                 </div>
-                <ul class="bullet-list">
-                    <li>Executed a large-scale, enterprise-wide data migration into Salesforce, ensuring zero business downtime and rigorous master data management.</li>
-                    <li>Implemented stringent data cleansing methods across disparate sources (NetSuite, ADP, MS Dynamics) to ensure auditing accuracy.</li>
-                </ul>
-            </div>
 
-            <div class="job-entry">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Data Integration & Software Engineer</span>
-                        <br>
-                        <span class="company-name">Stryker Corporation & Accenture (Internal SOC)</span>
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Data Integration & Software Engineer</div>
+                            <div class="item-subtitle">Stryker Corporation & Accenture (Internal SOC)</div>
+                        </div>
+                        <div class="item-date">May 2011 – February 2016</div>
                     </div>
-                    <div class="job-date">May 2011 – February 2016</div>
+                    <ul class="bullet-list">
+                        <li>Engineered comprehensive dimensional models and executed incremental data loads for global medical device analytics and Information Security Operations.</li>
+                        <li>Wrote complex stored procedures, views, and functions to support critical business logic and application enhancements.</li>
+                    </ul>
                 </div>
-                <ul class="bullet-list">
-                    <li>Engineered comprehensive dimensional models and executed incremental data loads for global medical device analytics and Information Security Operations.</li>
-                    <li>Wrote complex stored procedures, views, and functions to support critical business logic and application enhancements.</li>
-                </ul>
-            </div>
-        </section>
+            </section>
 
-        <section>
-            <h3>Academics</h3>
-            <div class="education-block">
-                <strong>B-Tech in Electronics & Communications Engineering</strong><br>
-                Sri Saradhi Institute of Engineering and Technology (SSIET), A.P.
-            </div>
-        </section>
+            <!-- Education -->
+            <section style="margin-bottom: 0;">
+                <h3>Academics</h3>
+                <div class="item" style="margin-bottom: 0;">
+                    <div class="item-title">B-Tech in Electronics & Communications Engineering</div>
+                    <div class="item-subtitle" style="color: var(--text-main);">Sri Saradhi Institute of Engineering and Technology (SSIET), A.P.</div>
+                </div>
+            </section>
+        </div>
     </div>
 </body>
 </html>
